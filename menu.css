@@ -1,0 +1,32 @@
+.menu {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	font-family: Georgia;
+	
+	}
+.menu li {
+	list-style: none;
+	float: left;
+	height: 33px;
+	padding: 0;
+	margin: 0;
+	width: auto;
+	text-align: center;
+	background: #171717;
+	position: relative;
+	padding-top: 12px;
+	}
+.menu li a {
+	display: block;
+	width: 160;
+	height: 33px;
+	color: #fff;
+	text-decoration: none;
+	}
+.menu li:hover ul, .menu li.hover ul {
+	display: block;
+	}
+.menu li:hover, .menu li.hover {
+	background: #424242;
+	}

@@ -1,0 +1,86 @@
+*{
+	padding:0;
+	margin:0;
+}
+
+.name{
+	padding-left:200px;
+}
+.name p{
+	font-size:40px;
+	font-family:"Brush Script MT"
+}
+.header{
+	margin:0 auto;
+	width:960px;
+	background:#171717;
+	height:45px;
+	font-family: Georgia;
+	
+}
+
+.labe{
+	font-family: Georgia;
+	color:#fff;
+	font-size:22px;
+	vertical-align:middle;
+}
+
+.main{
+	margin:0 auto;
+	width:960px;
+	background:#EDEDED;
+	height:600px;
+}
+
+.main p{
+	padding: 20px;
+	font-family: Georgia;
+	font-size: 25;
+	
+}
+
+.bot{
+	height:200px;
+	
+}
+.button-1{
+	width: 160;
+	display: block;
+	width: 160px;
+	height: 28px;
+	color: #fff;
+	text-decoration: none;
+	background:#171717;
+	padding-top:6px;
+	margin-top:10px;
+	}
+.button-1:hover {
+	background:#424242;
+
+}
+
+.enter{
+	position:absolute;
+ top:0;
+ right:0;
+ width:200px;
+}
+
+.text{
+	font-size:20px;
+}
+.bott{
+	height: 33px;
+	padding: 0;
+	margin: 0;
+	width: auto;
+	text-align: center;
+	background: #171717;
+	position: relative;
+	padding-top: 12px;
+}
+
+.bott:hover .bott{
+	background:#424242;
+}
