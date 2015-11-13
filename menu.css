@@ -26,9 +26,35 @@
 	text-decoration: none;
 	}
 	
+.menu .menu{
+	display:none;
+	position:absolute;
+	top:100%;
+}
+
+.menu .menu li{
+	float:none;
+}
+#oneLine{
+	height:33px;
+}
+
+#twoLine{
+	height:50px;
+}
+
+#threeLine{
+	height:63px;
+}
+	
+.menu .menu li a{
+			width: 170px;
+}	
+
 .menu li:hover ul, .menu li.hover ul {
 	display: block;
-	}
+}
 .menu li:hover, .menu li.hover {
 	background: #424242;
-	}
+}
+

@@ -30,7 +30,6 @@
 	margin:0 auto;
 	width:960px;
 	background:#EDEDED;
-	height:600px;
 }
 
 .main p{
@@ -68,11 +67,16 @@ a.button-1:active {
 }
 .enter{
 	position:absolute;
- top:0;
- right:0;
- width:200px;
+	top:0;
+	right:0;
+	width:200px;
 }
 
 .text{
 	font-size:20px;
 }
+
+#chemaPat{
+	padding:20px;
+}
+

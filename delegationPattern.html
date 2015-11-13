@@ -1,0 +1,162 @@
+<html>
+	<head>
+		<meta charset= utf-8>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="menu.css"/>
+		<link rel="stylesheet" type="text/css" href="spoiler.css"/>
+		<title>Design-Patterns</title>
+	</head>
+<body>
+	<div class="name">
+		<p style='color:#A80A00'>Design</p><p style='color:#251918'>Patterns</p>
+	</div>
+	<div class="header">	
+		<ul class="menu">
+			<li><a href="patterns.html">Главная</a></li>
+			<li><a>Основные </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="#">Шаблон делегирования </a></li>
+				<li id="threeLine"><a href="#">Шаблон функционального дизайна </a></li>
+				<li><a href="#">Интерфейс </a></li>
+			</ul>
+			</li>
+			<li><a>Порождающие </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="#">Абстрактная <br/> фабрика </a></li>
+				<li><a href="#">Одиночка  </a></li>
+			 </ul>
+			</li>
+			<li><a>Структурные </a>
+			<ul class="menu">
+				<li><a href="#">Компоновщик  </a></li>
+				<li><a href="#">Мост  </a></li>
+			 </ul>
+			</li>
+			<li><a>Поведенческие </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="#">Стратегия  </a></li>
+				<li id="threeLine"><a href="#">Наблюдатель  </a></li>
+			 </ul>
+			</li>
+			<li><a href="enter.html">Вход </a></li>	
+		</ul>
+	</div>
+	<div class="main" height="900px">
+		<div style='padding:10px;'>
+			<h1>Шаблон делегирования</h1>
+			<div id="info">
+				<p>Делегирование (англ. Delegation) — основной шаблон проектирования,
+				в котором объект внешне выражает некоторое поведение, 
+				но в реальности передаёт ответственность за выполнение 
+				этого поведения связанному объекту. Шаблон делегирования 
+				является фундаментальной абстракцией, на основе которой 
+				реализованы другие шаблоны. 
+				<br/>
+				<br/>
+				Цель
+				<br/>		
+				Возможность изменить поведение конкретного экземпляра объекта вместо создания нового класса путем наследования.
+				</p>
+			</div>
+			<div id="chemaPat">
+				<img src="images\Strategy_pattern.jpg">
+			</div>
+			<div>
+				<p>Реализация</p>
+				<p>Пример на C#</p>
+				<div class="spoiler">
+
+					<!--* Добавлен tabindex="-1" для снятия фокуса при переходе по "tab" -->
+					<input style="width:360px;height:45px;" type="checkbox" tabindex="-1" >
+					<div class="box">
+						<blockquote class="Untext">
+						<pre>
+namespace Patterns
+{
+    interface I
+    {
+        void f();
+        void g();
+    }
+
+    class A 
+      : I
+    {
+        public void f()
+        {
+            System.Console.WriteLine("A: вызываем метод f()");
+        }
+        public void g()
+        {
+            System.Console.WriteLine("A: вызываем метод g()");
+        }
+    }
+
+    class B 
+      : I
+    {
+        public void f()
+        {
+            System.Console.WriteLine("B: вызываем метод f()");
+        }
+        public void g()
+        {
+            System.Console.WriteLine("B: вызываем метод g()");
+        }
+    }
+
+    class C 
+      : I
+    {
+        // Создаём объект, методы которого будем делегировать
+        I i = new A();
+
+        public void f()
+        {
+            i.f();
+        }
+        public void g()
+        {
+            i.g();
+        }
+
+        // Этими методами меняем поле-объект, чьи методы будем делегировать
+        public void toA()
+        {
+            i = new A();
+        }
+        public void toB()
+        {
+            i = new B();
+        }
+    }
+
+    class DelegatePattern
+    {
+        static void Main( string[] args )
+        {
+            C c = new C();
+            c.f();
+            c.g();
+            c.toB();
+            c.f();
+            c.g();
+            System.Console.ReadKey();
+        }
+    }
+}
+						</pre>
+						</blockquote>
+					</div>
+
+				</div>
+					
+			</div>
+		</div>
+			
+	</div>
+	<div class="bot">
+		
+	</div>	
+	</body>
+</html>
