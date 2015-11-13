@@ -44,22 +44,26 @@
 	height:200px;
 	
 }
-.button-1{
+
+a.button-1 {
 	width: 160;
 	display: block;
 	width: 160px;
-	height: 28px;
+	height: 33px;
 	color: #fff;
 	text-decoration: none;
 	background:#171717;
 	padding-top:6px;
 	margin-top:10px;
-	}
-.button-1:hover {
-	background:#424242;
-
 }
 
+a.button-1:hover {
+	background:#424242;
+}
+
+a.button-1:active {
+	background:#fff;
+}
 .enter{
 	position:absolute;
  top:0;
@@ -69,18 +73,4 @@
 
 .text{
 	font-size:20px;
-}
-.bott{
-	height: 33px;
-	padding: 0;
-	margin: 0;
-	width: auto;
-	text-align: center;
-	background: #171717;
-	position: relative;
-	padding-top: 12px;
-}
-
-.bott:hover .bott{
-	background:#424242;
 }
