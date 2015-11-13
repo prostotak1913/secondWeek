@@ -2,9 +2,9 @@
 	padding: 0;
 	margin: 0;
 	font-size: 100%;
-	font-family: Georgia;
-	
+	font-family: Georgia;	
 	}
+	
 .menu li {
 	list-style: none;
 	float: left;
@@ -17,6 +17,7 @@
 	position: relative;
 	padding-top: 12px;
 	}
+	
 .menu li a {
 	display: block;
 	width: 160;
@@ -24,6 +25,7 @@
 	color: #fff;
 	text-decoration: none;
 	}
+	
 .menu li:hover ul, .menu li.hover ul {
 	display: block;
 	}
