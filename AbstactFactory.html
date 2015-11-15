@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<meta charset= utf-8>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="menu.css"/>
+		<link rel="stylesheet" type="text/css" href="spoiler.css"/>
+		<title>Design-Patterns</title>
+	</head>
+<body>
+	<div class="name">
+		<p style='color:#A80A00'>Design</p><p style='color:#251918'>Patterns</p>
+	</div>
+	<div class="header">	
+		<ul class="menu">
+			<li><a href="patterns.html">Главная</a></li>
+			<li><a>Основные </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="delegationPattern.html">Шаблон делегирования </a></li>
+				<li id="threeLine"><a href="FunctionalDesign.html">Шаблон функционального дизайна </a></li>
+				<li><a href="interface.html">Интерфейс </a></li>
+			</ul>
+			</li>
+			<li><a>Порождающие </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="AbstactFactory.html">Абстрактная <br/> фабрика </a></li>
+				<li><a href="singletone.html">Одиночка  </a></li>
+			 </ul>
+			</li>
+			<li><a>Структурные </a>
+			<ul class="menu">
+				<li><a href="Composite.html">Компоновщик  </a></li>
+				<li><a href="Bridge.html">Мост  </a></li>
+			 </ul>
+			</li>
+			<li><a>Поведенческие </a>
+			<ul class="menu">
+				<li ><a href="strategy.html">Стратегия  </a></li>
+				<li ><a href="Observer.html">Наблюдатель  </a></li>
+			 </ul>
+			</li>
+			<li><a href="enter.html">Вход </a></li>	
+		</ul>
+	</div>
+	<div class="main" height="900px">
+		<div style='padding:10px;'>
+			<h1>Абстрактная фабрика</h1>
+			<div id="info">
+				<p>Абстрактная фабрика (англ. Abstract factory) — порождающий шаблон проектирования, 
+				позволяющий изменять поведение системы, варьируя создаваемыми объектами, при этом 
+				сохраняя интерфейсы. Он позволяет создавать целые группы взаимосвязанных объектов, 
+				которые, будучи созданными одной фабрикой, реализуют общее поведение. Шаблон 
+				реализуется созданием абстрактного класса Factory, который представляет собой 
+				интерфейс для создания компонентов системы (например, для оконного интерфейса 
+				он может создавать окна и кнопки). Затем пишутся классы, реализующие этот интерфейс.
+				</p>
+			</div>
+			<p>Cхема</p>
+			<div id="chemaPat" style='padding-top:0px'>			
+				<img src="images/Abstract_factory.jpg">					
+			</div>
+		</div>
+			
+	</div>
+	<div class="bot">
+		<div align="center" style='padding-top:200' >
+			<a href="feedback.html">Обратная связь</a>
+		</div>	
+	</div>	
+	</body>
+</html>

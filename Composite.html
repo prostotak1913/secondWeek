@@ -1,0 +1,197 @@
+<html>
+	<head>
+		<meta charset= utf-8>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="menu.css"/>
+		<link rel="stylesheet" type="text/css" href="spoiler.css"/>
+		<title>Design-Patterns</title>
+	</head>
+<body>
+	<div class="name">
+		<p style='color:#A80A00'>Design</p><p style='color:#251918'>Patterns</p>
+	</div>
+	<div class="header">	
+		<ul class="menu">
+			<li><a href="patterns.html">Главная</a></li>
+			<li><a>Основные </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="delegationPattern.html">Шаблон делегирования </a></li>
+				<li id="threeLine"><a href="FunctionalDesign.html">Шаблон функционального дизайна </a></li>
+				<li><a href="interface.html">Интерфейс </a></li>
+			</ul>
+			</li>
+			<li><a>Порождающие </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="AbstactFactory.html">Абстрактная <br/> фабрика </a></li>
+				<li><a href="singletone.html">Одиночка  </a></li>
+			 </ul>
+			</li>
+			<li><a>Структурные </a>
+			<ul class="menu">
+				<li><a href="Composite.html">Компоновщик  </a></li>
+				<li><a href="Bridge.html">Мост  </a></li>
+			 </ul>
+			</li>
+			<li><a>Поведенческие </a>
+			<ul class="menu">
+				<li ><a href="strategy.html">Стратегия  </a></li>
+				<li ><a href="Observer.html">Наблюдатель  </a></li>
+			 </ul>
+			</li>
+			<li><a href="enter.html">Вход </a></li>	
+		</ul>
+	</div>
+	<div class="main" height="900px">
+		<div style='padding:10px;'>
+			<h1>Компоновщик</h1>
+			<div id="info">
+				<p>Компоновщик (англ. Composite pattern) — структурный шаблон проектирования, объединяющий 
+				объекты в древовидную структуру для представления иерархии от частного к целому. Компоновщик позволяет клиентам обращаться к отдельным объектам и к группам объектов одинаково.
+				</p>	
+				<h2 style='padding-left:20px;'>Цель</h2>
+				<p style='padding-top:0'>				
+					Паттерн определяет иерархию классов, которые одновременно могут состоять из примитивных и сложных объектов, упрощает архитектуру клиента, делает процесс добавления новых видов объекта более простым.
+				</p>
+			</div>
+			
+			<div id="chemaPat">
+			<h2>UML-диаграмма шаблона:</h2>
+				<img src="images/composite.jpg">
+			</div>
+			<div>
+				<p>Пример на C#</p>
+				<div class="spoiler">
+
+					<!--* Добавлен tabindex="-1" для снятия фокуса при переходе по "tab" -->
+					<input style="width:360px;height:45px;" type="checkbox" tabindex="-1" >
+					<div class="box">
+						<blockquote class="Untext">
+						
+						<pre>
+class MainApp
+  {
+    static void Main()
+    {
+      // Create a tree structure
+      Composite root = new Composite("root");
+ 
+      root.Add(new Leaf("Leaf A"));
+      root.Add(new Leaf("Leaf B"));
+ 
+      Composite comp = new Composite("Composite X");
+ 
+      comp.Add(new Leaf("Leaf XA"));
+      comp.Add(new Leaf("Leaf XB"));
+      root.Add(comp);
+      root.Add(new Leaf("Leaf C"));
+ 
+      // Add and remove a leaf
+      Leaf leaf = new Leaf("Leaf D");
+      root.Add(leaf);
+      root.Remove(leaf);
+ 
+      // Recursively display tree
+      root.Display(1);
+ 
+      // Wait for user
+      Console.Read();
+    }
+  }
+ 
+
+  /// Component - компонент
+
+  /// <lu>объявляет интерфейс для компонуемых объектов
+  /// <lu>предоставляет подходящую реализацию операций по умолчанию,
+  /// общую для всех классов
+  /// <lu>объявляет интерфейс для доступа к потомкам и управлению ими
+  /// <lu>определяет интерфейс доступа к родителю компонента в рекурсивной структуре
+  /// и при необходимости реализует его. Описанная возможность необязательна
+
+  abstract class Component
+  {
+    protected string name;
+ 
+    // Constructor
+    public Component(string name)
+    {
+      this.name = name;
+    }
+
+    public abstract void Display(int depth);
+  }
+ 
+
+  /// Composite - составной объект
+
+  /// определяет поведеление компонентов, у которых есть потомки
+  /// хранит компоненты-потомоки
+  /// реализует относящиеся к управлению потомками операции и интерфейсе
+  /// класса Component
+
+  class Composite : Component
+  {
+    private ArrayList children = new ArrayList();
+ 
+    // Constructor
+    public Composite(string name) : base(name)
+    {  
+    }
+ 
+    public void Add(Component component)
+    {
+      children.Add(component);
+    }
+ 
+    public void Remove(Component component)
+    {
+      children.Remove(component);
+    }
+ 
+    public override void Display(int depth)
+    {
+      Console.WriteLine(new String('-', depth) + name);
+ 
+      // Recursively display child nodes
+      foreach (Component component in children)
+      {
+        component.Display(depth + 2);
+      }
+    }
+  }
+ 
+
+  /// Leaf - лист
+  /// представляет листовой узел композиции и не имеет потомков
+  /// определяет поведение примитивных объектов в композиции
+
+  class Leaf : Component
+  {
+    // Constructor
+    public Leaf(string name) : base(name)
+    {  
+    }
+ 
+    public override void Display(int depth)
+    {
+      Console.WriteLine(new String('-', depth) + name);
+    }
+  }
+						</pre>
+						
+						</blockquote>
+					</div>
+
+				</div>
+					
+			</div>
+		</div>
+			
+	</div>
+	<div class="bot">
+		<div align="center" style='padding-top:200' >
+			<a href="feedback.html">Обратная связь</a>
+		</div>	
+	</div>	
+	</body>
+</html>

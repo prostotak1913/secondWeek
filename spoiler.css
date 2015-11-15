@@ -53,3 +53,9 @@
    min-height: 23px;
    border:#CDCDCD 2px dashed;
 }
+
+.box p{
+	font-size:15px;
+	font-family:Georgian;
+	color:#2AA23A;
+}

@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<meta charset= utf-8>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="menu.css"/>
+		<link rel="stylesheet" type="text/css" href="spoiler.css"/>
+		<title>Design-Patterns</title>
+	</head>
+<body>
+	<div class="name">
+		<p style='color:#A80A00'>Design</p><p style='color:#251918'>Patterns</p>
+	</div>
+	<div class="header">	
+		<ul class="menu">
+			<li><a href="patterns.html">Главная</a></li>
+			<li><a>Основные </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="delegationPattern.html">Шаблон делегирования </a></li>
+				<li id="threeLine"><a href="FunctionalDesign.html">Шаблон функционального дизайна </a></li>
+				<li><a href="interface.html">Интерфейс </a></li>
+			</ul>
+			</li>
+			<li><a>Порождающие </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="AbstactFactory.html">Абстрактная <br/> фабрика </a></li>
+				<li><a href="singletone.html">Одиночка  </a></li>
+			 </ul>
+			</li>
+			<li><a>Структурные </a>
+			<ul class="menu">
+				<li><a href="Composite.html">Компоновщик  </a></li>
+				<li><a href="Bridge.html">Мост  </a></li>
+			 </ul>
+			</li>
+			<li><a>Поведенческие </a>
+			<ul class="menu">
+				<li ><a href="strategy.html">Стратегия  </a></li>
+				<li ><a href="Observer.html">Наблюдатель  </a></li>
+			 </ul>
+			</li>
+			<li><a href="enter.html">Вход </a></li>	
+		</ul>
+	</div>
+	<div class="main" height="900px">
+		<div style='padding:10px;'>
+			<h1>Интерфейс</h1>
+			<div id="info">
+				<p>Интерфейс (англ. Interface) — основной шаблон проектирования, являющийся 
+				общим методом для структурирования компьютерных программ для того, чтобы их было проще 
+				понять. В общем, интерфейс — это класс, который обеспечивает программисту простой или 
+				более программно-специфический способ доступа к другим классам. Интерфейс может содержать 
+				набор объектов и обеспечивать простую, высокоуровневую функциональность для программиста 
+				(например, Шаблон Фасад); он может обеспечивать более чистый или более специфический способ 
+				использования сложных классов («класс-обёртка»); он может использоваться в качестве «клея» 
+				между двумя различными API (Шаблон Адаптер); и для многих других целей. Другими типами 
+				интерфейсных шаблонов являются: Шаблон делегирования, Шаблон компоновщик, и Шаблон мост.
+				</p>
+			</div>
+			<div>
+				<p>Пример на C#</p>
+				<div class="spoiler">
+
+					<!--* Добавлен tabindex="-1" для снятия фокуса при переходе по "tab" -->
+					<input style="width:360px;height:45px;" type="checkbox" tabindex="-1" >
+					<div class="box">
+						<blockquote class="Untext">
+						<pre>
+interface IInterface
+{
+	object Param11 { get; set; }
+}
+						</pre>
+						</blockquote>
+					</div>
+
+				</div>
+					
+			</div>
+		</div>
+			
+	</div>
+	<div class="bot">
+		<div align="center" style='padding-top:200' >
+			<a href="feedback.html">Обратная связь</a>
+		</div>	
+	</div>	
+	</body>
+</html>

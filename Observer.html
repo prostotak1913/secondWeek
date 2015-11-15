@@ -1,0 +1,242 @@
+<html>
+	<head>
+		<meta charset= utf-8>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="menu.css"/>
+		<link rel="stylesheet" type="text/css" href="spoiler.css"/>
+		<title>Design-Patterns</title>
+	</head>
+<body>
+	<div class="name">
+		<p style='color:#A80A00'>Design</p><p style='color:#251918'>Patterns</p>
+	</div>
+		<div class="header">	
+		<ul class="menu">
+			<li><a href="patterns.html">Главная</a></li>
+			<li><a>Основные </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="delegationPattern.html">Шаблон делегирования </a></li>
+				<li id="threeLine"><a href="FunctionalDesign.html">Шаблон функционального дизайна </a></li>
+				<li><a href="interface.html">Интерфейс </a></li>
+			</ul>
+			</li>
+			<li><a>Порождающие </a>
+			<ul class="menu">
+				<li id="twoLine"><a href="AbstactFactory.html">Абстрактная <br/> фабрика </a></li>
+				<li><a href="singletone.html">Одиночка  </a></li>
+			 </ul>
+			</li>
+			<li><a>Структурные </a>
+			<ul class="menu">
+				<li><a href="Composite.html">Компоновщик  </a></li>
+				<li><a href="Bridge.html">Мост  </a></li>
+			 </ul>
+			</li>
+			<li><a>Поведенческие </a>
+			<ul class="menu">
+				<li ><a href="strategy.html">Стратегия  </a></li>
+				<li ><a href="Observer.html">Наблюдатель  </a></li>
+			 </ul>
+			</li>
+			<li><a href="enter.html">Вход </a></li>	
+		</ul>
+	</div>
+	<div class="main" height="900px">
+		<div style='padding:10px;'>
+			<h1>Наблюдатель</h1>
+			<div id="info">
+				<p>Наблюдатель (англ. Observer) — поведенческий шаблон проектирования. Также известен как 
+				«подчинённые» (Dependents), «издатель-подписчик» (Publisher-Subscriber). Создает механизм 
+				у класса, который позволяет получать экземпляру объекта этого класса оповещения от других 
+				объектов об изменении их состояния, тем самым наблюдая за ними.
+				</p>	
+				<h2 style='padding-left:40px;'>Цель</h2>
+				<p style='padding-top:0; padding-bottom:0'>				
+					Определяет зависимость типа «один ко многим» между объектами таким образом, 
+					что при изменении состояния одного объекта все зависящие от него оповещаются об этом событии.
+					</p>
+				
+				<h2 style='padding-top:10; padding-left:20px; '>Реализация</h2>
+				<div id="chemaPat" style='padding-top:0;'>
+					<img src="images/Observer.png" style='padding-top:0'>
+				</div>
+				<ul style='padding:0; padding-left:40px; font-size:20px; font-family:Georgian; padding-bottom:10px;'>
+				<li>Observable — интерфейс, определяющий методы для добавления, удаления и оповещения наблюдателей;</li>
+				<li>Observer — интерфейс, с помощью которого наблюдатель получает оповещение;</li>
+				<li>ConcreteObservable — конкретный класс, который реализует интерфейс Observable;</li>
+				<li>ConcreteObserver — конкретный класс, который реализует интерфейс Observer.</li>	
+				</ul>
+				
+				<h2 style='padding-left:40px;'>Область применения</h2>
+				<p style='padding-top:0'>				
+					Шаблон «наблюдатель» применяется в тех случаях, когда система обладает следующими свойствами:
+				</p>
+				<ul style='padding:0; padding-left:40px; font-size:20px; font-family:Georgian; padding-bottom:10px;'>
+					<li>существует, как минимум, один объект, рассылающий сообщения;</li>
+					<li>имеется не менее одного получателя сообщений, причём их количество и состав могут изменяться во время работы приложения;</li>
+					<li>нет надобности очень сильно связывать взаимодействующие объекты, что полезно для повторного использования.</li>
+					<li>ConcreteObserver — конкретный класс, который реализует интерфейс Observer.</li>	
+				</ul>
+				<p style='padding-top:0'>				
+					Данный шаблон часто применяют в ситуациях, в которых отправителя сообщений не интересует, что делают получатели с предоставленной им информацией.
+				</p>
+				
+				<div id="chemaPat" style='padding-top:0; padding-bottom:0'>
+					
+					<img src="images/Bridge-2.png">
+				</div>
+				
+			</div>
+			
+			<div>
+				<p>Пример на C#</p>
+				<div class="spoiler">
+
+					<!--* Добавлен tabindex="-1" для снятия фокуса при переходе по "tab" -->
+					<input style="width:360px;height:45px;" type="checkbox" tabindex="-1" >
+					<div class="box">
+						<blockquote class="Untext">
+						<pre>
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
+
+namespace Observer
+{
+    /// Observer Pattern Judith Bishop Jan 2007
+    /// Updated by Kobel' Bohdan 2013
+    /// 
+    /// The Subject runs in a thread and changes its state
+    /// independently. At each change, it notifies its Observers.
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Subject subject = new Subject();
+            Observer observer = new Observer(subject,"Center","\t\t");
+            Observer observer2 = new Observer(subject,"Right","\t\t\t\t");
+            subject.Go();
+
+            // Wait for user
+            Console.Read();
+        }
+
+    }
+
+    class Simulator : IEnumerable 
+    {
+        string [] moves = {"5","3","1","6","7"};
+
+        public IEnumerator GetEnumerator() 
+        {
+            foreach (string element in moves)
+                yield return element;
+        }
+    }
+
+    interface ISubject
+    {
+        void AddObserver(IObserver observer);
+        void RemoveObserver(IObserver observer);
+        void NotifyObservers(string s);
+    }
+
+    class Subject : ISubject
+    {
+        public string SubjectState { get; set; }
+        public List<IObserver> Observers { get; private set; }
+
+        private Simulator simulator;
+
+        private const int speed = 200;
+
+        public Subject()
+        {
+            Observers = new List<IObserver>();
+            simulator = new Simulator();
+        }
+
+        public void AddObserver(IObserver observer)
+        {
+            Observers.Add(observer);
+        }
+
+        public void RemoveObserver(IObserver observer)
+        {
+            Observers.Remove(observer);
+        }
+
+        public void NotifyObservers(string s)
+        {
+            foreach (var observer in Observers)
+            {
+                observer.Update(s);
+            }
+        }
+
+        public void Go() 
+        {
+            new Thread(new ThreadStart(Run)).Start( );
+        }
+
+        void Run () 
+        {
+            foreach (string s in simulator) 
+            {
+                Console.WriteLine("Subject: " + s);
+                SubjectState = s;
+                NotifyObservers(s);
+                Thread.Sleep(speed); // milliseconds
+            }
+        }
+    }
+
+    interface IObserver 
+    {
+        void Update(string state);
+    }
+
+    class Observer : IObserver
+    {
+        string name;
+
+        ISubject subject;
+
+        string state;
+
+        string gap;
+
+        public Observer(ISubject subject, string name, string gap)
+        {
+            this.subject = subject;
+            this.name = name;
+            this.gap = gap;
+            subject.AddObserver(this);
+        }
+
+        public void Update(string subjectState)
+        {
+            state = subjectState;
+            Console.WriteLine(gap + name + ": " + state);
+        }
+    }
+}
+						</pre>
+						
+						</blockquote>
+					</div>
+
+				</div>
+					
+			</div>
+		</div>
+			
+	</div>
+	<div class="bot">
+		<div align="center" style='padding-top:200' >
+			<a href="feedback.html">Обратная связь</a>
+		</div>	
+	</div>	
+	</body>
+</html>
